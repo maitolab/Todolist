@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="controller.js"></script>
+
+</head>
+<body ng-app="todoApp"> 
+  <div ng-controller="todoController">
+
+    <div class="header">
+      <h2>My To Do List</h2>
+      <input type="text" placeholder="Todo..." ng-model="newTodoText">
+      <span class="addBtn" ng-click="addTodo()">Add</span>
+    </div>
+    <div class="content">
+      <ul>
+        <div ng-repeat="todo in todoList">
+          <li ng-class="todo.selected?'checked':''" ng-click="todo.selected = !todo.selected">{{todo.text}}
+          </li>
+        </div>
+      </ul>
+      <div class="bottom">
+      <span class="bottomBtn" ng-click="selectAllTodo()"> Select All </span>
+      <span class="bottomBtn" ng-click="deleteTodo()"> Delete </span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
